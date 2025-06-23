@@ -1,5 +1,4 @@
 import React from "react";
-import TwitterLogo from "@images/icons/twitter-logo.svg";
 import GithubLogo from "@images/icons/github-logo.svg";
 import MailLogo from "@images/icons/mail-logo.svg";
 import LinkedInLogo from "@images/icons/linkedin-logo.svg";

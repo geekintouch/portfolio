@@ -1,98 +1,150 @@
-import React, { useRef, useEffect } from "react";
 import AppSection from "@/components/AppSection";
-// import { EDUCATION } from "@/constants/menu";
-import Image from "next/image";
-import AppText from "@/components/AppText";
-import CywareImage from "@images/icons/cyware.svg";
+import React, { useRef, useEffect, useState } from "react";
 
-const contactInfoArr = [
-    {
-      id: "github",
-      icon: CywareImage,
-      url: "https://github.com/shivasaicharanruthala",
-    },]
+const iconColors = [
+  "#10b981", // emerald
+  "#3b82f6", // blue
+  "#f59e0b", // amber
+  "#ef4444", // red
+  "#6366f1", // indigo
+  "#ec4899", // pink
+  "#14b8a6", // teal
+  "#8b5cf6", // violet
+  "#e11d48", // rose
+  "#0ea5e9", // sky
+  "#22c55e", // green
+  "#f97316", // orange
+  "#a855f7", // purple
+  "#4ade80", // light green
+  "#06b6d4", // cyan
+  "#7c3aed", // deep violet
+  "#f43f5e", // bright rose
+  "#3f3f46", // zinc
+];
+
+
 
 function ExperienceSection() {
-  const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  const observerRefs = useRef<{ [key: string]: IntersectionObserver }>({});
+  const [iconColor, setIconColor] = useState("#64748b"); // default slate
+
+  const changeIconColor = () => {
+    const newColor = iconColors[Math.floor(Math.random() * iconColors.length)];
+    setIconColor(newColor);
+  };
+
 
 
   return (
     <AppSection headerTxt={"experience"}>
-    <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
-      <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
-          <path d="M12 10v2H7V8.496a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V12H0V4.496a.5.5 0 0 1 .206-.4l5.5-4a.5.5 0 0 1 .588 0l5.5 4a.5.5 0 0 1 .206.4V10Z" />
-          </svg>
-        </div>
-        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-          <div className="mb-4">
-            <div className="font-bold text-slate-900">Software Engineer </div>
-            <div className="flex justify-between items-center">
-              <div className="font-bold text-slate-900"> American Express </div>
-              <time className="font-caveat font-medium text-amber-500"> February 2023 - Present </time>
-            </div>
+      <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+        <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+          {/* Icon with dynamic hover color */}
+          <div
+            className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-colors duration-300"
+            onMouseEnter={changeIconColor}
+>
+            <svg
+              className="fill-current transition-colors duration-200"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="10"
+              style={{ color: iconColor }}
+            >
+              <path d="M12 10v2H7V8.496a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V12H0V4.496a.5.5 0 0 1 .206-.4l5.5-4a.5.5 0 0 1 .588 0l5.5 4a.5.5 0 0 1 .206.4V10Z" />
+            </svg>
           </div>
-          <ul className="list-disc text-slate-500 space-y-1 pl-5">
-            <li>Involved in Architecting robust backend structure, ensuring high uptime and resilience to support critical financial operations.</li> 
-            <li>Streamlined deployment processes, cutting deployment times in half through automation and ensuring consistent environments.</li>
-            <li>Accelerated transaction processing efficiency, achieving a substantial reduction in latency and enhancing customer experience.</li>
-          </ul> 
-        </div>
-      </div>
-      {/* verzeo */}
-      <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
-          <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
-          </svg>
-        </div>
-        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-          <div className="mb-4">
-            <div className="font-bold text-slate-900">Software Developer</div>
-            <div className="flex justify-between items-center">
-              <div className="font-bold text-slate-900">New Jersey Institute of Technology</div>
-              <time className="font-caveat font-medium text-amber-500">June 2023 - December 2023</time>
-            </div>
-          </div>
-          <ul className="list-disc text-slate-500 space-y-1 pl-5">
-            <li>Automated tools and dashboards that streamlined accommodation requests and provided actionable insights, to boost service speed and accuracy.</li>
-            <li>Spearheaded the digital transformation of paper-based processes into a unified web platform, enhancing accessibility and operational efficiency across services.</li>
-            <li>Led usability testing & established version-controlled repository, refined digital tools & ensured resource consistency to elevate student engagement and satisfaction.</li>
-          </ul>
-        </div>
-      </div>
 
-      <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
-          <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
-          </svg>
-        </div>
-        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-          <div className="mb-4">
-            <div className="font-bold text-slate-900">Graduate Research Assistant</div>
-            <div className="flex justify-between items-center">
-              <div className="font-bold text-slate-900">New Jersey Institute of Technology</div>
-              <time className="font-caveat font-medium text-amber-500">January 2023 - December 2023</time>
+          {/* Description */}
+          <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+            <div className="mb-4">
+              <div className="font-bold text-slate-900">Software Engineer</div>
+              <div className="flex justify-between items-center">
+                <div className="font-bold text-slate-900">United Parcel Service</div>
+                <time className="font-caveat font-medium text-amber-500">December 2024 - Present</time>
+              </div>
             </div>
+            <ul className="list-disc text-slate-500 space-y-1 pl-5">
+              <li>Implemented & scaled backend features across sharded microservices, embedding regional business logic & integrating adaptive AI models to support dynamic workflows.</li>
+              <li>Revamped deployment workflows to support structured bi-sprint releases, cutting cycle times & driving consistent delivery across environments.</li>
+              <li>Redesigned actor-based service logic & Couchbase interactions to improve performance to support real-time regional data flows.</li>
+            </ul>
           </div>
-          <ul className="list-disc text-slate-500 space-y-1 pl-5">
-            <li>Developed full-stack web application using Angular, Node.js, Express.js & MongoDB to effectively present & demonstrate findings.</li>
-            <li>Involved in Research work of Deep Learning and Natural Language Processing.</li>
-            <li>Assisted Graduates in Coursework : Machine Learning, Enterprise Application Development, Software Engineering.</li>
-          </ul>
         </div>
-      </div>
 
-      <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-      {/* <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"> */}
-        {/* <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 text-slate-500  shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2"> */}
-          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
-          {/* <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="200.000000pt" height="200.000000pt" viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet"> */}
-            {/* <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+        <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+              <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+          </div>
+          <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+            <div className="mb-4">
+              <div className="font-bold text-slate-900">Software Engineer </div>
+              <div className="flex justify-between items-center">
+                <div className="font-bold text-slate-900"> American Express </div>
+                <time className="font-caveat font-medium text-amber-500"> February 2024 - December 2024 </time>
+              </div>
+            </div>
+            <ul className="list-disc text-slate-500 space-y-1 pl-5">
+              <li>Architected resilient backend system for high-throughput financial transactions, for seamless integration with AI-driven real-time decisioning.</li>
+              <li>Optimized & automated deployment pipelines, reducing release times by half & enabled safe, repeatable rollouts across staging & production.</li>
+              <li>Boosted transaction performance & aligning it with real-time AI insights, directly enhancing system responsiveness and user experience.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+              <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+          </div>
+          <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+            <div className="mb-4">
+              <div className="font-bold text-slate-900">Software Developer</div>
+              <div className="flex justify-between items-center">
+                <div className="font-bold text-slate-900">New Jersey Institute of Technology</div>
+                <time className="font-caveat font-medium text-amber-500">June 2023 - December 2023</time>
+              </div>
+            </div>
+            <ul className="list-disc text-slate-500 space-y-1 pl-5">
+              <li>Automated tools & dashboards that streamlined accommodation requests & provided actionable insights, to boost service speed & accuracy.</li>
+              <li>Digitized paper-based processes into a unified web platform, enhancing accessibility and operational efficiency across services.</li>
+              <li>Led usability testing & established version-controlled repository, refined digital tools & ensured resource consistency to elevate student engagement and satisfaction.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+              <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+          </div>
+          <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+            <div className="mb-4">
+              <div className="font-bold text-slate-900">Graduate Research Assistant</div>
+              <div className="flex justify-between items-center">
+                <div className="font-bold text-slate-900">New Jersey Institute of Technology</div>
+                <time className="font-caveat font-medium text-amber-500">January 2023 - December 2023</time>
+              </div>
+            </div>
+            <ul className="list-disc text-slate-500 space-y-1 pl-5">
+              <li>Developed full-stack web application using Angular, Node.js, Express.js & MongoDB to effectively present & demonstrate findings.</li>
+              <li>Conducted advanced research in Deep Learning and Natural Language Processing to drive innovative project outcomes.</li>
+              <li>Assisted Graduates in Coursework : Machine Learning, Enterprise Application Development, Software Engineering.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            {/* <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"> */}
+            {/* <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 text-slate-500  shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2"> */}
+            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+              {/* <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="200.000000pt" height="200.000000pt" viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet"> */}
+              {/* <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
               <path d="M0 1000 l0 -1000 1000 0 1000 0 0 1000 0 1000 -1000 0 -1000 0 0
               -1000z m1111 593 c90 -88 109 -112 109 -137 0 -73 -65 -87 -125 -26 -21 22
               -43 40 -47 40 -4 0 -8 -155 -8 -345 l0 -345 -25 -16 c-48 -31 -66 -15 -187
@@ -126,53 +178,53 @@ function ExperienceSection() {
               <path d="M1228 609 c-31 -17 -20 -29 27 -29 46 0 54 7 33 28 -15 15 -37 15
               -60 1z"/>
             </g> */}
-          <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />  
-          </svg>
-        </div>
-        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-          <div className="mb-4">
-            <div className="font-bold text-slate-900">Senior Systems Engineer</div>
-            <div className="flex justify-between items-center">
-              <div className="font-bold text-slate-900">Infosys</div>
+              <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+          </div>
+          <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+            <div className="mb-4">
+              <div className="font-bold text-slate-900">Senior Systems Engineer</div>
+              <div className="flex justify-between items-center">
+                <div className="font-bold text-slate-900">Infosys</div>
                 <time className="font-caveat font-medium text-amber-500">January 2021 - August 2022</time>
               </div>
             </div>
             <ul className="list-disc text-slate-500 space-y-1 pl-5">
-              <li>Transformed a monolithic to a microservices architecture, significantly improving scalability & system performance.</li>
+              <li>Transformed monolithic application to a microservices architecture, significantly improving scalability & system performance.</li>
               <li>Led the development of Integration Testing Framework, enabling accurate end-to-end application flow predictions.</li>
               <li>Specialized in Kafka, PostgreSQL, Docker, and AWS services (SQS, S3, ECS) to elevate operational efficiency.</li>
             </ul>
           </div>
         </div>
 
-        
-          <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-                <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
-              </svg>
-            </div>
-            <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-              <div className="mb-4">
-                <div className="font-bold text-slate-900">Machine Learning Intern</div>
-                <div className="flex justify-between items-center">
-                  < div className="font-bold text-slate-900">Verzeo</div>
-                  <time className="font-caveat font-medium text-amber-500">September 2020 - November 2020</time>
-                </div>
-              </div>
-              <ul className="list-disc text-slate-500 space-y-1 pl-5">
-                <li>Worked on improving personalized learning path using decision trees & ML algorithms to deliver tailored user experiences.</li>
-                <li>Enhanced learner(user) experience by resolving key client issues, automating assessment workflows, and ensuring seamless system integration.</li>
-                <li>Integrated machine learning solutions with AWS services, leveraging tools like S3, Lambda, and SageMaker to optimize deployment and scalability.</li>
-              </ul>
-            </div>
-          </div>
 
-
-          <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+        <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-            <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+              <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+          </div>
+          <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+            <div className="mb-4">
+              <div className="font-bold text-slate-900">Machine Learning Intern</div>
+              <div className="flex justify-between items-center">
+                < div className="font-bold text-slate-900">Verzeo</div>
+                <time className="font-caveat font-medium text-amber-500">September 2020 - November 2020</time>
+              </div>
+            </div>
+            <ul className="list-disc text-slate-500 space-y-1 pl-5">
+              <li>Engineered and optimized personalized learning pathways by leveraging decision trees & advanced machine learning algorithms, resulting in highly tailored and impactful user experiences.</li>
+              <li>Enhanced learner(user) experience by resolving key client issues, automating assessment workflows, & ensuring seamless systems.</li>
+              <li>Integrated machine learning solutions with AWS services, leveraging tools like S3, Lambda, and SageMaker to optimize deployment and scalability.</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+              <path fillRule="nonzero" d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
             </svg>
           </div>
           <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
@@ -184,9 +236,9 @@ function ExperienceSection() {
               </div>
             </div>
             <ul className="list-disc text-slate-500 space-y-1 pl-5">
-              <li>Developed high-accuracy web interface for EW machines, ensuring precise sensor interfacing and extraction of critical metrics.</li>
-              <li>Optimized Spring-based backend operations to convert raw data streams into actionable insights, enhancing decision-making efficiency.</li>
-              <li>Deployed an interactive REST API with Spring Boot on AWS EC2, achieving 99% data accessibility and integrity.</li>
+              <li>Developed high-accuracy web interface for EW machines, ensuring precise sensor interfacing and extraction of real time critical metrics.</li>
+              <li>Optimized Spring-based backend operations to convert raw data streams into actionable insights, enhancing rapid decision-making efficiency.</li>
+              <li>Deployed a user interactive REST API backed Spring app on AWS EC2, achieving 99% data accessibility and integrity.</li>
             </ul>
           </div>
         </div>

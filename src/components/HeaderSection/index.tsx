@@ -33,10 +33,10 @@ function HeaderSection() {
               <AppText textTag="p" extraMedium semiBold defaultColor>
                 {`I'm a`}
               </AppText>
-              <TypingText textArr={["Backend Developer", "DevOps Engineer", "Data Engineer", "Full Stack Developer", "Data Analyst", "Frontend Developer", "Software Developer" ]} />
+              <TypingText textArr={["Backend Developer", "Data Engineer", "Full Stack Developer", "Data Analyst", "Frontend Developer", "AI Engineer" ]} />
             </div>
             <AppText textTag="p" medium defaultColor customClass="mt-4 mb-4">
-              {`As a passionate & ambitious Engineer curious to design, implement & optimize complex systems, with a strong focus on building scalable services leveraging diverse technologies and cloud platforms. I thrive on hands-on learning through impactful projects and embrace a mindset of perpetual learning with continuous growth and development.`}
+              {`As a passionate & ambitious Engineer curious to design, implement & optimize complex systems, with a strong focus on building AI enabled services. Leveraging diverse technologies and cloud platforms. I thrive on hands-on learning through impactful projects and embrace a mindset of perpetual learning.`}
             </AppText>
             <ContactLogos />
           </div>
@@ -58,7 +58,7 @@ function HeaderSection() {
           </div>
         </div>
         <div className="lg:basis-2/5 md:basis-auto">
-  <div className="w-full h-full relative m-auto">
+  {/* <div className="w-full h-full relative m-auto">
     <Image
       alt="Shyam's Avatar Image"
       src={"/images/new-avatar.png"}
@@ -66,7 +66,7 @@ function HeaderSection() {
       loading={"lazy"}
       className="bg-backgroundColor-day dark:bg-backgroundColor-night"
     />
-  </div>
+  </div> */}
 </div>
 
       </div>
