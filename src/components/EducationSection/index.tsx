@@ -107,7 +107,7 @@ function EducationSection() {
                       semiBold
                       customClass="group-hover:text-primaryColor"
                     >
-                      {education.date}
+                      {/* {education.date}
                       <AppText
                         textTag="span"
                         medium
@@ -116,7 +116,7 @@ function EducationSection() {
                         customClass="ml-1 mr-1 invisible group-hover:visible group-hover:text-primaryColor"
                       >
                         {"|"}
-                      </AppText>
+                      </AppText> */}
                       <AppText
                         textTag="span"
                         default
