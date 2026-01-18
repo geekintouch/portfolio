@@ -44,14 +44,14 @@ function HeaderSection() {
           <AppButton
               ariaLabel="Send email"
               buttonType="primary"
-              onClick={() => window.location.href = 'mailto:shyamkiran0831@gmail.com'}
+              onClick={() => window.location.href = 'mailto:shyamgangoni@gmail.com'}
               buttonText="Contact Me"
             />
             <AppButton
               ariaLabel=""
               buttonType="secondary"
               onClick={() => {
-                window.open("https://drive.google.com/file/d/15j5-fnJLwbGows8jwmAJMumaubBYlqpT/view?usp=share_link", '_blank');
+                window.open("https://drive.google.com/file/d/1q4YPpF9uBeK2i8f1YJ7xsm7guYKE5Lz1/view?usp=drive_link", '_blank');
               }}
               buttonText="See My Resume"
             />

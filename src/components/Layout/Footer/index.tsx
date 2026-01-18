@@ -24,7 +24,7 @@ function Footer() {
           <div className="flex items-center lg:justify-start justify-center gap-1 my-6">
             <LocationIcon className="h-6 w-6 fill-primaryColor-light" />
             <AppText textTag="p" default defaultColor>
-              Jersey City, New Jersey, USA
+              Orlando, Florida, USA
             </AppText>
           </div>
           <AppText textTag="p" medium defaultColor customClass="my-6">

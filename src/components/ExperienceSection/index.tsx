@@ -61,7 +61,7 @@ function ExperienceSection() {
               <div className="font-bold text-slate-900">Software Engineer</div>
               <div className="flex justify-between items-center">
                 <div className="font-bold text-slate-900">United Parcel Service</div>
-                <time className="font-caveat font-medium text-amber-500">December 2024 - Present</time>
+                <time className="font-caveat font-medium text-amber-500">January 2025 - Present</time>
               </div>
             </div>
             <ul className="list-disc text-slate-500 space-y-1 pl-5">
@@ -83,7 +83,7 @@ function ExperienceSection() {
               <div className="font-bold text-slate-900">Software Engineer </div>
               <div className="flex justify-between items-center">
                 <div className="font-bold text-slate-900"> American Express </div>
-                <time className="font-caveat font-medium text-amber-500"> February 2024 - December 2024 </time>
+                <time className="font-caveat font-medium text-amber-500"> January 2024 - December 2024 </time>
               </div>
             </div>
             <ul className="list-disc text-slate-500 space-y-1 pl-5">

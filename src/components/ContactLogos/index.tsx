@@ -12,12 +12,12 @@ const contactInfoArr = [
   {
     id: "linkedIn",
     icon: LinkedInLogo,
-    url: "https://www.linkedin.com/in/gshyamkiran/",
+    url: "https://www.linkedin.com/in/shyamgangoni/",
   },
   {
     id: "mail",
     icon: MailLogo,
-    url: "mailto:shyamkiran0831@gmail.com",
+    url: "mailto:shyamgangoni@gmail.com",
   }
 ];
 

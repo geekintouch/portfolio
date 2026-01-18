@@ -7,7 +7,7 @@ import AppText from "@/components/AppText";
 const educations = [
   {
     id: "MSC",
-    date: "August 2022 - December 2023",
+    // date: "August 2022 - December 2023",
     course: "Master of Science in Computer Science",
     name: "New Jersey Institute of Technology",
     logoURL: "/icons/njit_logo.svg",
@@ -17,7 +17,7 @@ const educations = [
   },
   {
     id: "BTech",
-    date: "Aug 2017 - June 2021",
+    // date: "Aug 2017 - June 2021",
     course: "Bachelor of Technology in Computer Science",
     name: "Osmania University",
     logoURL: "/icons/ou_logo.svg",
